@@ -1,20 +1,132 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      PoGo Tankit
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<!------------------------------------------------------------------------------------------------------- -->
+
+<ion-content [fullscreen]="true">
+
+
+  <ion-grid>
+    <ion-col>
+
+
+    </ion-col>
+
+
+
+
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-label>League</ion-label>
+          <ion-select interface="teste400" [(ngModel)]=teste400 (ionChange)="changeLeague(teste400)">
+            <ion-select-option value="GlTop30">GL Top 30</ion-select-option>
+            <ion-select-option value="GlAllPokemon">GL All Pokemon</ion-select-option>
+            <ion-select-option value="UlTop30">UL Top 30</ion-select-option>
+            <ion-select-option value="UlAllPokemon">UL All Pokemon</ion-select-option>
+            <ion-select-option value="MlTop30">ML Top 30</ion-select-option>
+            <ion-select-option value="MLAllPokemon">ML All Pokemon</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="buttonOneSelected()">Choose your Pokemon</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button (click)="buttonTwoSelected()">Choose your Oponent</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="button1clicked">
+      <ion-img  (click)="pokemon1SeletectedSwampert()" src='../../assets/PokemonImages/Swampert.png' ></ion-img>
+    </ion-row>
+    <ion-row *ngIf="button2clicked">
+      <ion-img (click)="pokemon2SeletectedVenusaur();createLifeArray()" src="../../assets/PokemonImages/Venusaur.png" ></ion-img>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <p>{{pokemon1Selected}}</p>
+        </div>
+      </ion-col>
+      <ion-col size="2">
+      </ion-col>
+      <ion-col>
+        <div class="ion-text-center" >
+          <p>{{pokemon2Selected}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="pokemon1Selected || pokemon2Selected">
+      <ion-col>
+        <ion-img src='../../assets/PokemonImages/{{pokemon1Selected}}.png'></ion-img>
+      </ion-col>
+      <ion-col>
+          <ion-img class="VsImage" style="width: 80px; height: 80px;" src="../../assets/versus-logo-vs-letras-para-esportes-e-competicao-de-luta_100456-149.png" style="align-items: center"></ion-img>
+      </ion-col>
+      <ion-col>
+        <ion-img src='../../assets/PokemonImages/{{pokemon2Selected}}.png'></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="calculate()" expand="block" color="warning">Tank it?</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div class="ion-text-center">
+          <p>Oponent Moves : </p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+
+    <ion-row>
+      <mat-tab-group>
+        <mat-tab label="Oponent Damage">
+          <div *ngIf="this.pokemon1WasSelected && this.pokemon2WasSelected ">
+            <div *ngFor="let eachMove of this.leaguePokemon[this.pokemonNumber2].moves;let i=index">
+              <ion-row>
+                <ion-col><p>{{eachMove}}</p></ion-col>
+                <ion-col size="3"><p> HP: {{this.pokemonHPShow[i]}}</p></ion-col>
+                <ion-col><p> Move Damage: {{this.allMovesDamageArray[i]}}</p></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col>
+                  <ion-progress-bar  [value]="pokemonHPbyMoveArray[i]"></ion-progress-bar>
+                </ion-col>
+                <ion-col  id="teste1" size="3">
+                  <div>
+                    <p [ngClass]="{'green-class': this.tankItAwnserArray[i] === 'YES!', 'orange-class': this.tankItAwnserArray[i] === 'Optional', 'red-class': this.tankItAwnserArray[i] === 'NO!' }"> {{this.tankItAwnserArray[i]}} </p>
+                  </div>
+                </ion-col>
+              </ion-row>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Your Damage"> Content 2 </mat-tab>
+      </mat-tab-group>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+
+
+
+
+
+
+
+
+

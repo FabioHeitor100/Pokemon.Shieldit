@@ -1,3 +1,31 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+<ion-grid>
+  <ion-row>
+<ion-col>
+
+<app-pokemon-menu1 (teste11)="testeola()"
+                   (pokemonId)="getPokemonIdFromList1($event)"
+                   (pokemonName)="getPokemonNameFromLIst1($event)" ></app-pokemon-menu1>
+
+</ion-col>
+
+  <ion-col>
+
+  <app-home></app-home>
+  </ion-col>
+    <io-col>
+
+
+      <app-pokemon-menu2 (pokemonId)="getPokemonIdFromList2($event)"
+                         (pokemonName)="getPokemonNameFromLIst2($event)"></app-pokemon-menu2>
+
+    </io-col>
+  </ion-row>
+
+
+</ion-grid>
+
+
+
+
 </ion-app>

@@ -1,0 +1,14 @@
+
+<ion-searchbar (ionInput)="pokemonFilter($event)" ></ion-searchbar>
+
+<ion-img id="{{pokemon.id}}"
+         (click)="sendPokemonInfo1(pokemon.id,pokemon.name)"
+         *ngFor="let pokemon of pokemonListId;
+         let i=index"
+         src="../../assets/PokemonImagesSmall/{{pokemon.name}}.png" style="width: 60px; height: 60px" ></ion-img>
+
+
+
+
+
+

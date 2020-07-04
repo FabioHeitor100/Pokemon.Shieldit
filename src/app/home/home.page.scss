@@ -25,3 +25,70 @@
 #container a {
   text-decoration: none;
 }
+
+#teste1{
+  padding-top: 0;
+  margin-top: -10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.health-box {
+  background-color: #ccc;
+  height: 30px;
+
+  margin: 0 auto;
+  border: solid 1px #aaa;
+}
+
+ion-progress-bar{
+
+  --buffer-background: rgba(0, 0, 0, 1) ;
+  --progress-background: #1affba;
+  height: 20px;
+  
+
+  border: solid 2px white;
+
+}
+
+#ProgressBarOnTheBack{
+
+
+  --buffer-background: rgba(0, 0, 0, 1) ;
+  --progress-background: #ff9900;
+  height: 20px;
+
+
+  border: solid 2px white;
+
+}
+
+.green-class { color: green; }
+.orange-class { color: orange; }
+.red-class { color: red; }
+
+
+#teste{
+  width: 50px;
+  background: #2dd36f;
+}
+
+
+.health-bar {
+  background-color: #007f00;
+  width: inherit;
+  height: 28px;
+  position: relative;
+  bottom: 56px;
+}

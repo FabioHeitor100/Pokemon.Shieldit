@@ -1,5 +1,7 @@
 {
   "name": "Pokemon Go Tankit",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
