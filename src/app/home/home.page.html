@@ -1,7 +1,12 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      PoGo Tankit
+      PoGo ShielIT
+
+
+       <ion-button (click)="toggleHelp()"> HELP
+      <ion-icon name="help-circle-outline"></ion-icon>
+    </ion-button>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,20 +16,28 @@
 
 <ion-content [fullscreen]="true">
 
-
   <ion-grid>
-    <ion-col>
-
-
-    </ion-col>
-
-
-
-
-
+    <ion-row *ngIf="this.helpState">
+        <ion-col>
+          <ion-card>
+            <ion-card-content>
+              <ion-text color="secondary">
+             <h1>What is this app?</h1>
+              </ion-text>
+              <p>This app was created to help Pokemon Go players with the damage dealt by theirs and oponent pokemons in PvP battles, with information about life loss and when to use the shield defence.</p>
+              <h1>How to use it?</h1>
+           <p>First you select the League that matches the type that you want to see. Second you select your pokemon using the menu on the LEFT or by pressing the "Choose your pokemon" button if you a mobile application/view.Third you select your oponent pokemon on the RIGHT side menu. For the last, you click on the FIGHT button, and then the damage is calculated. You can choose between your pokemon damage and your oponent</p>
+              <h1>When to use it?</h1>
+           <p>This app works really well after you had chosen your team using PVPPOKE. You can select your pokemon that is in your team,and a range of pokemons that you think you will enconter the most, then you can see what abilities you can take without using your shield.
+           You can use this too, when playing in real time PvP battles, if your fast enough selecting yours and your oponent pokemons.</p>
+              <hi>Why this app was created?</hi>
+             <p>I created this app, because when i was PvPing, i felt the necessity to have one fast way to know all the abilities that my oponoent could have and what damage they do. PVPPoke have this option too, but is alot "harder" to get there, so i created one simple way to see what i needed</p>
+            </ion-card-content> </ion-card>
+        </ion-col>
+    </ion-row>
     <ion-row>
       <ion-col>
-        <ion-item>
+        <ion-item >
           <ion-label>League</ion-label>
           <ion-select interface="teste400" [(ngModel)]=teste400 (ionChange)="changeLeague(teste400)">
             <ion-select-option value="GlTop30">GL Top 30</ion-select-option>
@@ -36,21 +49,14 @@
           </ion-select>
         </ion-item>
       </ion-col>
-
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="buttonOneSelected()">Choose your Pokemon</ion-button>
+        <ion-menu-button menu="start" color="yellow">Choose your Pokemon</ion-menu-button>
       </ion-col>
       <ion-col>
-        <ion-button (click)="buttonTwoSelected()">Choose your Oponent</ion-button>
+        <ion-menu-button menu="end" >Choose your opponent</ion-menu-button>
       </ion-col>
-    </ion-row>
-    <ion-row *ngIf="button1clicked">
-      <ion-img  (click)="pokemon1SeletectedSwampert()" src='../../assets/PokemonImages/Swampert.png' ></ion-img>
-    </ion-row>
-    <ion-row *ngIf="button2clicked">
-      <ion-img (click)="pokemon2SeletectedVenusaur();createLifeArray()" src="../../assets/PokemonImages/Venusaur.png" ></ion-img>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -66,7 +72,7 @@
         </div>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="pokemon1Selected || pokemon2Selected">
+    <ion-row class="background" *ngIf="pokemon1Selected || pokemon2Selected">
       <ion-col>
         <ion-img src='../../assets/PokemonImages/{{pokemon1Selected}}.png'></ion-img>
       </ion-col>
@@ -79,23 +85,13 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button (click)="calculate()" expand="block" color="warning">Tank it?</ion-button>
+        <ion-button (click)="calculate()" expand="block" color="warning">FIGHT!</ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <div class="ion-text-center">
-          <p>Oponent Moves : </p>
-        </div>
-      </ion-col>
-    </ion-row>
-
-
-
-    <ion-row>
-      <mat-tab-group>
-        <mat-tab label="Oponent Damage">
-          <div *ngIf="this.pokemon1WasSelected && this.pokemon2WasSelected ">
+      <mat-tab-group backgroundColor="primary" headerPosition="below">
+        <mat-tab label="Oponent Damage" >
+          <div *ngIf="this.pokemon1WasSelected && this.pokemon2WasSelected && this.leagueSelected && this.lifeCreated">
             <div *ngFor="let eachMove of this.leaguePokemon[this.pokemonNumber2].moves;let i=index">
               <ion-row>
                 <ion-col><p>{{eachMove}}</p></ion-col>
@@ -118,11 +114,35 @@
         <mat-tab label="Your Damage"> Content 2 </mat-tab>
       </mat-tab-group>
     </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button>
+          <ion-img src="../../assets/icon/paypal.png" style="width: 20px; height: 20px"></ion-img> Donate
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button>
+          <ion-img src="../../assets/icon/patreon.png" style="width: 20px; height: 20px"></ion-img> Patreon
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button>
+          <ion-img src="../../assets/icon/pvppoke.png" style="width: 20px; height: 20px"></ion-img> PvP Poke
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row >
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <p>Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only.
+            </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
-
-
-
 
 
 

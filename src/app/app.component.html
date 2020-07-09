@@ -1,31 +1,28 @@
-<ion-app>
-<ion-grid>
-  <ion-row>
-<ion-col>
+<ion-split-pane contentId="main">
+  <!--  the side menu  -->
+  <ion-menu contentId="main" side="start">
+    <app-pokemon-menu1 (pokemonId)="getPokemonIdFromList1($event)"
+                         (pokemonName)="getPokemonNameFromLIst1($event)" ></app-pokemon-menu1>
+  </ion-menu>
 
-<app-pokemon-menu1 (teste11)="testeola()"
-                   (pokemonId)="getPokemonIdFromList1($event)"
-                   (pokemonName)="getPokemonNameFromLIst1($event)" ></app-pokemon-menu1>
-
-</ion-col>
-
-  <ion-col>
-
-  <app-home></app-home>
-  </ion-col>
-    <io-col>
-
-
+  <ion-menu contentId="main" side="end">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu1</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
       <app-pokemon-menu2 (pokemonId)="getPokemonIdFromList2($event)"
                          (pokemonName)="getPokemonNameFromLIst2($event)"></app-pokemon-menu2>
+    </ion-content>
+  </ion-menu>
 
-    </io-col>
-  </ion-row>
+  <!-- the main content -->
 
+  <ion-content id="main">
+    <app-home ></app-home>
 
-</ion-grid>
+  </ion-content>
 
+</ion-split-pane>
 
-
-
-</ion-app>

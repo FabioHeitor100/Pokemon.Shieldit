@@ -36,6 +36,9 @@ export class AppComponent {
     this.homePage.pokemonNumber = number;
     this.homePage.pokemon1WasSelected = true;
     this.homePage.checkIfTwoPokemonsSelected();
+    console.log('Passou para a home', number);
+    this.homePage.resetArrays();
+    this.homePage.createLifeArray();
   }
 
   getPokemonNameFromLIst1(name){
@@ -48,10 +51,14 @@ export class AppComponent {
     this.homePage.pokemonNumber2 = number;
     this.homePage.pokemon2WasSelected = true;
     this.homePage.checkIfTwoPokemonsSelected();
+    console.log('Passou para a home', number);
+    this.homePage.resetArrays();
+    this.homePage.createLifeArray();
   }
 
   getPokemonNameFromLIst2(name){
     this.homePage.pokemon2Selected = name;
     console.log('Parent Name from Menu2:', name);
   }
+
 }
