@@ -44,4 +44,21 @@ export class PokemonMenu1Component implements OnInit {
       this.pokemonName.emit(pokemonName);
     }
 
+
+    changeBGColor(id){
+
+
+for(let pokemon of this.pokemonListId){
+  document.getElementById(pokemon.id.toString()).style.border = " 1px solid #222428";
+
+
+}
+
+
+
+
+
+     document.getElementById(id).style.border = " 1px solid white";
+    }
+
 }

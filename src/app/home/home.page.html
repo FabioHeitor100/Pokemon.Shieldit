@@ -1,13 +1,58 @@
 <ion-header [translucent]="true">
+
   <ion-toolbar>
-    <ion-title>
-      PoGo ShielIT
 
 
-       <ion-button (click)="toggleHelp()"> HELP
-      <ion-icon name="help-circle-outline"></ion-icon>
-    </ion-button>
-    </ion-title>
+<!--    <ion-grid>-->
+<!--      <ion-row>-->
+<!--        <ion-col>-->
+<!--          <ion-img src="../../assets/icon/Shield.png" style="width:50px; height:50px;"></ion-img>-->
+<!--        </ion-col>-->
+<!--        <ion-col>-->
+<!--          <ion-title>-->
+<!--                  PoGo ShielIT-->
+<!--                </ion-title>-->
+<!--        </ion-col>-->
+<!--        <ion-col>-->
+<!--      <ion-buttons slot="end">-->
+<!--        <ion-button class="ion-text-end" style="grid-row-end:auto " (click)="toggleHelp()">-->
+<!--                <ion-icon name="help-circle-outline"></ion-icon>-->
+<!--              </ion-button>-->
+<!--      </ion-buttons>-->
+<!--        </ion-col>-->
+<!--      </ion-row>-->
+
+<!--    </ion-grid>-->
+
+
+          <ion-img slot="start" src="../../assets/icon/Shield.png" style="width:50px; height:50px;"></ion-img>
+
+          <ion-title slot="start">
+            PoGo ShieldiT
+          </ion-title>
+
+          <ion-buttons slot="end">
+            <ion-button class="ion-text-end" style="grid-row-end:auto " (click)="toggleHelp()"> HELP
+              <ion-icon name="help-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+
+
+
+
+
+
+    <!--  <ion-img src="../../assets/icon/Shield.png" style="width:100px; height:100px;"></ion-img>-->
+
+
+
+
+<!--    <ion-title>-->
+<!--      PoGo ShielIT-->
+<!--    </ion-title>-->
+<!--    <ion-button style="float: right" (click)="toggleHelp()"> HELP-->
+<!--      <ion-icon name="help-circle-outline"></ion-icon>-->
+<!--    </ion-button>-->
   </ion-toolbar>
 </ion-header>
 
@@ -24,14 +69,14 @@
               <ion-text color="secondary">
              <h1>What is this app?</h1>
               </ion-text>
-              <p>This app was created to help Pokemon Go players with the damage dealt by theirs and oponent pokemons in PvP battles, with information about life loss and when to use the shield defence.</p>
+              <p>This app was created to help Pokemon Go players with the damage dealt by theirs and opponent pokemons in PvP battles, with information about life loss and when to use the shield defence option.</p>
               <h1>How to use it?</h1>
-           <p>First you select the League that matches the type that you want to see. Second you select your pokemon using the menu on the LEFT or by pressing the "Choose your pokemon" button if you a mobile application/view.Third you select your oponent pokemon on the RIGHT side menu. For the last, you click on the FIGHT button, and then the damage is calculated. You can choose between your pokemon damage and your oponent</p>
+           <p>First you select the League that matches the type that you want to see. Second you select your pokemon using the menu on the LEFT or by pressing the "Choose your pokemon" button if your on a mobile application/view.Third you select your opponent pokemon on the RIGHT side menu. For the last, you click on the FIGHT button, and then the damage is calculated. You can choose between your pokemon damage and your opponent</p>
               <h1>When to use it?</h1>
            <p>This app works really well after you had chosen your team using PVPPOKE. You can select your pokemon that is in your team,and a range of pokemons that you think you will enconter the most, then you can see what abilities you can take without using your shield.
-           You can use this too, when playing in real time PvP battles, if your fast enough selecting yours and your oponent pokemons.</p>
+           You can use this too, when playing in real time PvP battles, if your fast enough selecting yours and your opponent pokemons.</p>
               <h1>Why this app was created?</h1>
-             <p>I created this app, because when i was PvPing, i felt the necessity to have one fast way to know all the abilities that my oponoent could have and what damage they do. PVPPoke have this option too, but is alot "harder" to get there, so i created one simple way to see what i needed</p>
+             <p>I created this app, because when i was PvPing, i felt the necessity to have one fast way to know all the abilities that my opponent could have and what damage they do. PVPPoke have this option too, but is alot "harder" to get there, so i created one simple way to see what i needed</p>
             </ion-card-content> </ion-card>
         </ion-col>
     </ion-row>
@@ -52,23 +97,27 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-menu-button menu="start" color="yellow">Choose your Pokemon</ion-menu-button>
+        <ion-button style="width: 100%; height: 100%">
+        <ion-menu-button  menu="start" > Choose your Pokemon </ion-menu-button>
+        </ion-button>
       </ion-col>
       <ion-col>
+        <ion-button style="width: 100%; height: 100%">
         <ion-menu-button menu="end" >Choose your opponent</ion-menu-button>
+        </ion-button>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
         <div class="ion-text-center">
-          <p>{{pokemon1Selected}}</p>
+          <p style="font-size: 20px">{{pokemon1Selected}}</p>
         </div>
       </ion-col>
       <ion-col size="2">
       </ion-col>
       <ion-col>
         <div class="ion-text-center" >
-          <p>{{pokemon2Selected}}</p>
+          <p style="font-size: 20px">{{pokemon2Selected}}</p>
         </div>
       </ion-col>
     </ion-row>
@@ -89,7 +138,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <mat-tab-group backgroundColor="primary" headerPosition="below">
+      <mat-tab-group color= "primary"  backgroundColor="primary" headerPosition="below" mat-align-tabs="center">
         <mat-tab label="Oponent Damage" >
           <div *ngIf="this.pokemon1WasSelected && this.pokemon2WasSelected && this.leagueSelected && this.lifeCreated">
             <div *ngFor="let eachMove of this.leaguePokemon[this.pokemonNumber2].moves;let i=index">
@@ -115,18 +164,18 @@
       </mat-tab-group>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-button>
+      <ion-col class="ion-text-center">
+        <ion-button style="width: 100%; height: 100%; height: 48px;font-size: 20px" href="https://paypal.me/FabioHeitor?locale.x=pt_PT">
           <ion-img src="../../assets/icon/paypal.png" style="width: 20px; height: 20px"></ion-img> Donate
         </ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button>
+      <ion-col class="ion-text-center">
+        <ion-button style="width: 100%; height: 100%; height: 48px; font-size: 20px" href="https://www.patreon.com/Fabio_Heitor100?fan_landing=true">
           <ion-img src="../../assets/icon/patreon.png" style="width: 20px; height: 20px"></ion-img> Patreon
         </ion-button>
       </ion-col>
-      <ion-col>
-        <ion-button>
+      <ion-col class="ion-text-center">
+        <ion-button style="width: 100%; height: 100%; height: 48px ;font-size: 20px" href="https://pvpoke.com/">
           <ion-img src="../../assets/icon/pvppoke.png" style="width: 20px; height: 20px"></ion-img> PvP Poke
         </ion-button>
       </ion-col>
@@ -135,11 +184,18 @@
       <ion-col>
         <ion-card>
           <ion-card-content>
-            <p>Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only.
-            </p>
+
+            <ion-text style="text-align: center">
+             <p> Pokémon and Pokémon GO are copyright of The Pokémon Company, Niantic, Inc., and Nintendo. All trademarked images and names are property of their respective owners, and any such material is used on this site for educational purposes only.</p>
+            </ion-text>
+
           </ion-card-content>
         </ion-card>
       </ion-col>
+    </ion-row>
+    <ion-row>
+
+
     </ion-row>
   </ion-grid>
 </ion-content>

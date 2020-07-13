@@ -16,6 +16,21 @@ import {GreatLeagueAllService} from "../Pokemons/great-league-all.service";
 
 export class HomePage implements OnInit{
 
+  // meter o primeiro menu scrolable
+  //colocar os 3 botões do mesmo tamanho e juntos
+  // colocar a tab com os 2 botoes no meio alinhados
+  // colocar icon
+  // colocar o meu logo
+  // colocar help no lado direito
+  //mudar o tipo de letra parta uma mais visiver
+  //mudar as imagens de vs e ?
+  //7mudar a cor dos botoes
+  // colocar o texto centrado
+  // aumentar o tamanha da letra
+  // trabalho nos botoes de abrir os menus
+  // encontrar forma de colocar icons do tipo das skils
+  // colocar os links para o paypal,patreon e pvp poke
+  // colocar nome dos menus de your pokemon e your opoent
 
   //adicionar um background quando um pokemon é selecionado
   //adicionar adds

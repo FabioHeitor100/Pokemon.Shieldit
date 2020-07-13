@@ -39,7 +39,33 @@ export class PokemonMenu2Component implements OnInit {
     this.pokemonId.emit(pokemonId);
     this.pokemonName.emit(pokemonName);
   }
+
+  changeBGColor(id){
+
+
+    for(let pokemon of this.pokemonListId){
+      document.getElementById(pokemon.id.toString() +"+2").style.border = " 1px solid black";
+
+
+    }
+
+
+
+
+
+    document.getElementById(id +"+2").style.border = " 1px solid white";
+  }
+
+
+
+
+
+
+
+
+
 }
+
 
 
 
